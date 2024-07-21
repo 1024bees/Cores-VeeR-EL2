@@ -13,7 +13,7 @@
     cmds:
       - export RV_ROOT=$(pwd)
       - mkdir -p hello_world && cd hello_world;
-      - ln -sfh ../obj_dir obj_dir
+      - ln -sfn ../obj_dir obj_dir
       - make -f $RV_ROOT/tools/Makefile program.hex TEST=hello_world
       - ./obj_dir/Vtb_top
     outputs:

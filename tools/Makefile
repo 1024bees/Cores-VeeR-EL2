@@ -123,7 +123,7 @@ includes = -I${BUILD_DIR}
 
 # CFLAGS for verilator generated Makefiles. Without -std=c++11 it
 # complains for `auto` variables
-CFLAGS += -std=c++11
+CFLAGS += -std=c++14
 
 # Optimization for better performance; alternative is nothing for
 # slower runtime (faster compiles) -O2 for faster runtime (slower
