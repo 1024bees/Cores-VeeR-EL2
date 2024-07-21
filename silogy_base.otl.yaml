@@ -3,19 +3,7 @@
   rule_args:
     cmds:
       - export RV_ROOT=$(pwd)
-      - make -f $RV_ROOT/tools/Makefile verilator-build
-
-- name: cmark
-  rule: raw_bash
-  rule_args:
-    deps:
-      - verilator_build
-    cmds:
-      - export RV_ROOT=$(pwd)
-      - mkdir cmark && cd cmark;
-      - ln -sfh ../obj_dir obj_dir
-      - make -f $RV_ROOT/tools/Makefile program.hex TEST=cmark
-      - ./obj_dir/Vtb_top
+      - debug=1 make -f $RV_ROOT/tools/Makefile verilator-build
 
 - name: hello_world
   rule: raw_bash
@@ -28,3 +16,5 @@
       - ln -sfh ../obj_dir obj_dir
       - make -f $RV_ROOT/tools/Makefile program.hex TEST=hello_world
       - ./obj_dir/Vtb_top
+    outputs:
+      waves: hello_world/sim.vcd
